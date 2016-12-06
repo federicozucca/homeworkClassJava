@@ -25,26 +25,16 @@ public class GarageTest{
 
   @Test 
   public void canPark(){
-    garage.park(car);
+    garage.canPark(car);
     assertEquals(1,garage.parkCount());
   }
 
-  @Test 
-    public void parkIsFull(){
-      for (int i=0; i<10; i++) {
-        garage.park(car); 
-      }
-      assertEquals(true, garage.parkFull());
-    }
-
-  @Test
-  public void shouldEmptySpaceAfterLeaving(){
-    garage.park(car);
-    assertEquals(1,garage.parkCount());
-    garage.leave();
-    assertEquals(0,garage.parkCount());
-
-  }
+  // @Test
+  // public void shouldEmptySpaceAfterLeaving(){
+  //   garage.canPark(car);
+  //  Parkable park = car.leave();
+  //  assertNotNull(food);
+  // }
 
   @Test
   public void hasModel(){

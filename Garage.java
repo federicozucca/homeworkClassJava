@@ -1,45 +1,36 @@
+import java.util.*;
+
 public class Garage{
+
   private String name;
 
-  private Car[] park;
+  private ArrayList<Parkable>park;
   private Owner[] owner;
 
 
   public Garage(String name){
     this.name = name;
-    this.park = new Car[10];
+    this.park = new ArrayList<Parkable>();
   }
   public String getName(){
     return this.name;
   }
 
   public int parkCount(){
-    int count = 0;
-    for(Car car : park){
-      if ( car != null) {
-        count ++ ;
-      }
-    }
-    return count;
+    return park.size();
   }
 
-  public boolean parkFull(){
-    return parkCount() == park.length;
+  public void canPark(Car car)
+    {
+    park.add(car);
   }
 
-  public void park(Car car){
-    if (parkFull()){
-      return;
-    }
-    int parkCount = parkCount();
-    park[parkCount] = car;
-  }
-
-  public void leave(){
-    for (int i = 0; i < park.length; i++){
-      park[i] = null;
-    }
-  }
+  // public void leave(){
+  //   if (parkCount()>0){
+  //     return park.remove(0); 
+  //   }
+  //   return null;
+  // }
 
 
 }
